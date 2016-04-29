@@ -123,7 +123,7 @@ function upgrade(){
 //clock
 setInterval(tickTock,1500);
 function tickTock(){
-	while(cat == true){
+	if(cat == true){
 		if (notices == 1){
 		document.getElementById("text").innerHTML = "You have noticed Kohai " + notices + " time.";
 		}
