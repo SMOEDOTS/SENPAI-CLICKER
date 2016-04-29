@@ -5,6 +5,7 @@ var senpaiShip = 0;
 var senpaiPoints = 0;
 var senpaiPrice = 10;
 var pointCounter = 0;
+var SPcounter = 1;
 var senpaiStatus = "STRANGER";
 
 //When notice clicked
@@ -20,7 +21,7 @@ function notice(){
 		document.getElementById("text").innerHTML = "You have noticed Kohai " + notices + " times.";
 	}
 	if (pointCounter == 5){
-		senpaiPoints++;
+		senpaiPoints = senpaiPoints + SPcounter;
 		console.log("Senpai Point Get!")
 		if (senpaiPoints == 1){
 			document.getElementById("text3").innerHTML = "You have " + senpaiPoints + " Senpai Point."
@@ -31,9 +32,16 @@ function notice(){
 		pointCounter = 0;
 	}
 	
-	if (notices != 0){
+	else if (notices >= 70 && senpaiShip >= 2){
+		document.getElementById("mainText").innerHTML = "Kohai blushes when you notice him."
+	}
+	else if (notices >= 50 && senpaiShip >= 1){
+		document.getElementById("mainText").innerHTML = "Kohai wants to be noticed more!"
+	}
+	else if (notices != 0){
 		document.getElementById("mainText").innerHTML = "Kohai bounces around happily.";
-	}else{
+	}
+	else{
 		document.getElementById("mainText").innerHTML = "Kohai awaits your attention..."
 	}
 }
@@ -47,13 +55,44 @@ function upgrade(){
 		if(senpaiShip == 1){
 			senpaiStatus = "PERSON NEXT DOOR";
 			senpaiPrice = 20;
+			SPcounter = 2;
 		}
+		else if(senpaiShip == 2){
+			senpaiStatus = "ACQUAINTANCE";
+			senpaiPrice = 100;
+		}
+		else if(senpaiShip == 3){
+			senpaiStatus = "FRIEND"
+			senpaiPrice = 150;
+			SPcounter = 5;
+		}
+		else if(senpaiShip == 4){
+			senpaiStatus = "SECOND BEST FRIEND"
+			senpaiPrice = 200;
+		}
+		else if(senpaiShip == 5){
+			senpaiStatus = "BEST FRIEND"
+			senpaiPrice = 500;
+			SPcounter = 10;
+		}
+		else if(senpaiShip == 6){
+			senpaiStatus = "MORE THAN FRIENDS??"
+			senpaiPrice = 1000;
+			SPcounter = 20;
+		}
+		else if(senpaiShip == 7){
+			senpaiStatus = "ASCEND"
+			senpaiPrice = 5000;
+			document.getElementById("upSenpaiButton").innerHTML = "ASCEND " + senpaiPrice + " SP"
+		}
+		if (senpaiShip != 7){
 		document.getElementById("upSenpaiButton").innerHTML = "Upgrade Senpaiship " + senpaiPrice + " SP"
 		
 		document.getElementById("text2").innerHTML = "Upgraded senpaiship to: " + senpaiStatus + ".";
+		}
 	}
 	else{
-		document.getElementById("text3").innerHTML = "You don't have enough Senpai points.";
+	document.getElementById("text3").innerHTML = "You don't have enough Senpai points.";
 	}
 }
 //clock
@@ -78,6 +117,10 @@ function tickTock(){
 	else{
 		document.getElementById("text3").innerHTML = "You have " + senpaiPoints + " Senpai Points.";
 	}
-	document.getElementById("text2").innerHTML = "Current Senpaiship: " + senpaiStatus;
-	
+	if (senpaiShip != 7){
+		document.getElementById("text2").innerHTML = "Current Senpaiship: " + senpaiStatus;
+	}
+	else{
+	document.getElementById("text2").innerHTML = "ASCEND ASCEND ASCEND";
+	}
 }
