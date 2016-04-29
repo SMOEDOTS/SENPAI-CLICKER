@@ -8,7 +8,6 @@ var pointCounter = 0;
 var SPcounter = 1;
 var senpaiStatus = "STRANGER";
 var cat = true;
-
 //When notice clicked
 function notice(){
 	notices++;
@@ -45,16 +44,41 @@ function notice(){
 		document.getElementById("mainText").innerHTML = "Kohai has made you something.";
 	}
 	else if (senpaiShip >= 3){
-		document.getElementById("mainText").innerHTML = "Kohai is sinply happy.";
+		document.getElementById("mainText").innerHTML = "Kohai is simply happy.";
+				if(pics.src.match("happy.png")){
+		}
+		else{
+			pics.src = "happy.png";
+		}
+
 	}
 	else if (notices >= 70 && senpaiShip >= 2){
 		document.getElementById("mainText").innerHTML = "Kohai blushes when you notice him.";
+				if(pics.src.match("Blush.gif")){
+		}
+		else{
+			pics.src = "Blush.gif";
+		}
+
 	}
 	else if (notices >= 50 && senpaiShip >= 1){
 		document.getElementById("mainText").innerHTML = "Kohai wants to be noticed more!";
+		if(pics.src.match("NoticeMore.gif")){
+		}
+		else{
+			pics.src = "NoticeMore.gif";
+		}
+
+
 	}
 	else if (notices != 0){
 		document.getElementById("mainText").innerHTML = "Kohai bounces around happily.";
+		if(pics.src.match("bounce.gif")){
+		}
+		else{
+			pics.src = "bounce.gif";
+		}
+
 	}
 	else{
 		document.getElementById("mainText").innerHTML = "Kohai awaits your attention..."
