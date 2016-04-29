@@ -7,6 +7,7 @@ var senpaiPrice = 10;
 var pointCounter = 0;
 var SPcounter = 1;
 var senpaiStatus = "STRANGER";
+var cont = true
 
 //When notice clicked
 function notice(){
@@ -63,7 +64,7 @@ function notice(){
 function upgrade(){
 	console.log("Upgrade clicked")
 	if (senpaiPoints - senpaiPrice >= 0){
-		
+		senpaiPoints = senpaiPoints - senpaiPrice;
 		senpaiShip++;
 		
 		if(senpaiShip == 1){
@@ -74,11 +75,12 @@ function upgrade(){
 		else if(senpaiShip == 2){
 			senpaiStatus = "ACQUAINTANCE";
 			senpaiPrice = 100;
+			SPcounter = 5; 
 		}
 		else if(senpaiShip == 3){
 			senpaiStatus = "FRIEND"
 			senpaiPrice = 150;
-			SPcounter = 5;
+			SPcounter = 10;
 		}
 		else if(senpaiShip == 4){
 			senpaiStatus = "SECOND BEST FRIEND"
@@ -87,12 +89,12 @@ function upgrade(){
 		else if(senpaiShip == 5){
 			senpaiStatus = "BEST FRIEND"
 			senpaiPrice = 500;
-			SPcounter = 10;
+			SPcounter = 20;
 		}
 		else if(senpaiShip == 6){
 			senpaiStatus = "MORE THAN FRIENDS??"
 			senpaiPrice = 1000;
-			SPcounter = 20;
+			SPcounter = 50;
 		}
 		else if(senpaiShip == 7){
 			senpaiStatus = "ASCEND"
@@ -100,14 +102,13 @@ function upgrade(){
 			document.getElementById("upSenpaiButton").innerHTML = "ASCEND " + senpaiPrice + " SP"
 		}
 		else if(senpaiShip == 8){
+			cont = false;
 			document.getElementById("upSenpaiButton").innerHTML = "THANK YOU FOR PLAYING";
 			document.getElementById("mainText").innerHTML = "THANK YOU FOR PLAYING"
 			document.getElementById("text1").innerHTML = "THANK YOU FOR PLAYING"
 			document.getElementById("text2").innerHTML = "THANK YOU FOR PLAYING"
 			document.getElementById("text3").innerHTML = "THANK YOU FOR PLAYING"
 			alert("THANK YOU SENPAI FOR PLAYING! You're the best.");
-			window.open('','_parent',''); 
-			window.close();
 		}
 		if (senpaiShip != 7){
 		document.getElementById("upSenpaiButton").innerHTML = "Upgrade Senpaiship " + senpaiPrice + " SP"
@@ -122,29 +123,30 @@ function upgrade(){
 //clock
 setInterval(tickTock,1500);
 function tickTock(){
-	
-	if (notices == 1){
-	document.getElementById("text").innerHTML = "You have noticed Kohai " + notices + " time.";
-	}
-	else if(notices == 0){
-		document.getElementById("text").innerHTML = "You haven't noticed Kohai yet.";
-	}
-	else{
-		document.getElementById("text").innerHTML = "You have noticed Kohai " + notices + " times.";
-	}
-	if (senpaiPoints == 1){
-		document.getElementById("text3").innerHTML = "You have " + senpaiPoints + " Senpai Point.";
-	}
-	else if(senpaiPoints == 0){
-		document.getElementById("text3").innerHTML = "You don't have any Senpai Points."
-	}
-	else{
-		document.getElementById("text3").innerHTML = "You have " + senpaiPoints + " Senpai Points.";
-	}
-	if (senpaiShip != 7){
-		document.getElementById("text2").innerHTML = "Current Senpaiship: " + senpaiStatus;
-	}
-	else{
-	document.getElementById("text2").innerHTML = "ASCEND ASCEND ASCEND";
+	while(cont == true){
+		if (notices == 1){
+		document.getElementById("text").innerHTML = "You have noticed Kohai " + notices + " time.";
+		}
+		else if(notices == 0){
+			document.getElementById("text").innerHTML = "You haven't noticed Kohai yet.";
+		}
+		else{
+			document.getElementById("text").innerHTML = "You have noticed Kohai " + notices + " times.";
+		}
+		if (senpaiPoints == 1){
+			document.getElementById("text3").innerHTML = "You have " + senpaiPoints + " Senpai Point.";
+		}
+		else if(senpaiPoints == 0){
+			document.getElementById("text3").innerHTML = "You don't have any Senpai Points."
+		}
+		else{
+			document.getElementById("text3").innerHTML = "You have " + senpaiPoints + " Senpai Points.";
+		}
+		if (senpaiShip != 7){
+			document.getElementById("text2").innerHTML = "Current Senpaiship: " + senpaiStatus;
+		}
+		else{
+		document.getElementById("text2").innerHTML = "ASCEND ASCEND ASCEND";
+		}
 	}
 }
