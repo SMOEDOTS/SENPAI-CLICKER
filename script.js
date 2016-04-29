@@ -31,7 +31,21 @@ function notice(){
 		}
 		pointCounter = 0;
 	}
-	
+	if (senpaiShip == 7){
+		document.getElementById("mainText").innerHTML = "Kohai awaits ASCENSION."
+	}
+	else if (senpaiShip >= 6){
+		document.getElementById("mainText").innerHTML = "You must really like Kohai."
+	}
+	else if (senpaiShip >= 5){
+		document.getElementById("mainText").innerHTML = "Kohai made you a clicker."
+	}
+	else if (senpaiShip >= 4){
+		document.getElementById("mainText").innerHTML = "Kohai has made you something."
+	}
+	else if (senpaiShip >= 3){
+		document.getElementById("mainText").innerHTML = "Kohai is sinply happy."
+	}
 	else if (notices >= 70 && senpaiShip >= 2){
 		document.getElementById("mainText").innerHTML = "Kohai blushes when you notice him."
 	}
@@ -82,8 +96,18 @@ function upgrade(){
 		}
 		else if(senpaiShip == 7){
 			senpaiStatus = "ASCEND"
-			senpaiPrice = 5000;
+			senpaiPrice = 2000;
 			document.getElementById("upSenpaiButton").innerHTML = "ASCEND " + senpaiPrice + " SP"
+		}
+		else if(senpaiShip == 8){
+			document.getElementById("upSenpaiButton").innerHTML = "THANK YOU FOR PLAYING";
+			document.getElementById("mainText").innerHTML = "THANK YOU FOR PLAYING"
+			document.getElementById("text1").innerHTML = "THANK YOU FOR PLAYING"
+			document.getElementById("text2").innerHTML = "THANK YOU FOR PLAYING"
+			document.getElementById("text3").innerHTML = "THANK YOU FOR PLAYING"
+			alert("THANK YOU SENPAI FOR PLAYING! You're the best.");
+			window.open('','_parent',''); 
+			window.close();
 		}
 		if (senpaiShip != 7){
 		document.getElementById("upSenpaiButton").innerHTML = "Upgrade Senpaiship " + senpaiPrice + " SP"
