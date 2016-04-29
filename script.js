@@ -7,7 +7,7 @@ var senpaiPrice = 10;
 var pointCounter = 0;
 var SPcounter = 1;
 var senpaiStatus = "STRANGER";
-var cont = true
+var cat = true;
 
 //When notice clicked
 function notice(){
@@ -25,33 +25,33 @@ function notice(){
 		senpaiPoints = senpaiPoints + SPcounter;
 		console.log("Senpai Point Get!")
 		if (senpaiPoints == 1){
-			document.getElementById("text3").innerHTML = "You have " + senpaiPoints + " Senpai Point."
+			document.getElementById("text3").innerHTML = "You have " + senpaiPoints + " Senpai Point.";
 		}
 		else{
-			document.getElementById("text3").innerHTML = "You have " + senpaiPoints + " Senpai Points."
+			document.getElementById("text3").innerHTML = "You have " + senpaiPoints + " Senpai Points.";
 		}
 		pointCounter = 0;
 	}
 	if (senpaiShip == 7){
-		document.getElementById("mainText").innerHTML = "Kohai awaits ASCENSION."
+		document.getElementById("mainText").innerHTML = "Kohai awaits ASCENSION.";
 	}
 	else if (senpaiShip >= 6){
-		document.getElementById("mainText").innerHTML = "You must really like Kohai."
+		document.getElementById("mainText").innerHTML = "You must really like Kohai.";
 	}
 	else if (senpaiShip >= 5){
-		document.getElementById("mainText").innerHTML = "Kohai made you a clicker."
+		document.getElementById("mainText").innerHTML = "Kohai made you a clicker.";
 	}
 	else if (senpaiShip >= 4){
-		document.getElementById("mainText").innerHTML = "Kohai has made you something."
+		document.getElementById("mainText").innerHTML = "Kohai has made you something.";
 	}
 	else if (senpaiShip >= 3){
-		document.getElementById("mainText").innerHTML = "Kohai is sinply happy."
+		document.getElementById("mainText").innerHTML = "Kohai is sinply happy.";
 	}
 	else if (notices >= 70 && senpaiShip >= 2){
-		document.getElementById("mainText").innerHTML = "Kohai blushes when you notice him."
+		document.getElementById("mainText").innerHTML = "Kohai blushes when you notice him.";
 	}
 	else if (notices >= 50 && senpaiShip >= 1){
-		document.getElementById("mainText").innerHTML = "Kohai wants to be noticed more!"
+		document.getElementById("mainText").innerHTML = "Kohai wants to be noticed more!";
 	}
 	else if (notices != 0){
 		document.getElementById("mainText").innerHTML = "Kohai bounces around happily.";
@@ -78,21 +78,21 @@ function upgrade(){
 			SPcounter = 5; 
 		}
 		else if(senpaiShip == 3){
-			senpaiStatus = "FRIEND"
+			senpaiStatus = "FRIEND";
 			senpaiPrice = 150;
 			SPcounter = 10;
 		}
 		else if(senpaiShip == 4){
-			senpaiStatus = "SECOND BEST FRIEND"
+			senpaiStatus = "SECOND BEST FRIEND";
 			senpaiPrice = 200;
 		}
 		else if(senpaiShip == 5){
-			senpaiStatus = "BEST FRIEND"
+			senpaiStatus = "BEST FRIEND";
 			senpaiPrice = 500;
 			SPcounter = 20;
 		}
 		else if(senpaiShip == 6){
-			senpaiStatus = "MORE THAN FRIENDS??"
+			senpaiStatus = "MORE THAN FRIENDS??";
 			senpaiPrice = 1000;
 			SPcounter = 50;
 		}
@@ -104,14 +104,14 @@ function upgrade(){
 		else if(senpaiShip == 8){
 			cont = false;
 			document.getElementById("upSenpaiButton").innerHTML = "THANK YOU FOR PLAYING";
-			document.getElementById("mainText").innerHTML = "THANK YOU FOR PLAYING"
-			document.getElementById("text1").innerHTML = "THANK YOU FOR PLAYING"
-			document.getElementById("text2").innerHTML = "THANK YOU FOR PLAYING"
-			document.getElementById("text3").innerHTML = "THANK YOU FOR PLAYING"
+			document.getElementById("mainText").innerHTML = "THANK YOU FOR PLAYING";
+			document.getElementById("text1").innerHTML = "THANK YOU FOR PLAYING";
+			document.getElementById("text2").innerHTML = "THANK YOU FOR PLAYING";
+			document.getElementById("text3").innerHTML = "THANK YOU FOR PLAYING";
 			alert("THANK YOU SENPAI FOR PLAYING! You're the best.");
 		}
 		if (senpaiShip != 7){
-		document.getElementById("upSenpaiButton").innerHTML = "Upgrade Senpaiship " + senpaiPrice + " SP"
+		document.getElementById("upSenpaiButton").innerHTML = "Upgrade Senpaiship " + senpaiPrice + " SP";
 		
 		document.getElementById("text2").innerHTML = "Upgraded senpaiship to: " + senpaiStatus + ".";
 		}
@@ -123,7 +123,7 @@ function upgrade(){
 //clock
 setInterval(tickTock,1500);
 function tickTock(){
-	while(cont == true){
+	while(cat == true){
 		if (notices == 1){
 		document.getElementById("text").innerHTML = "You have noticed Kohai " + notices + " time.";
 		}
@@ -137,7 +137,7 @@ function tickTock(){
 			document.getElementById("text3").innerHTML = "You have " + senpaiPoints + " Senpai Point.";
 		}
 		else if(senpaiPoints == 0){
-			document.getElementById("text3").innerHTML = "You don't have any Senpai Points."
+			document.getElementById("text3").innerHTML = "You don't have any Senpai Points.";
 		}
 		else{
 			document.getElementById("text3").innerHTML = "You have " + senpaiPoints + " Senpai Points.";
