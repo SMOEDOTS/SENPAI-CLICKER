@@ -45,10 +45,10 @@ function notice(){
 	}
 	else if (senpaiShip >= 3){
 		document.getElementById("mainText").innerHTML = "Kohai is simply happy.";
-				if(pics.src.match("happy.png")){
+				if(pics.src.match("happy.jpg")){
 		}
 		else{
-			pics.src = "happy.png";
+			pics.src = "happy.jpg";
 		}
 
 	}
