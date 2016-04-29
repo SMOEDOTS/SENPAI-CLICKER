@@ -15,9 +15,6 @@
 	width: 300px;
 	height: 300px;
 }
-.p{
-	text-align: right;
-}
 
 .clicky2{
 	width: 100px;
@@ -28,8 +25,8 @@
     padding-left: 10px;
 }
 .text{
-	padding-top: 20px;
+	padding-top: 10px;
     padding-right: 10px;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     padding-left: 10px;
 }
