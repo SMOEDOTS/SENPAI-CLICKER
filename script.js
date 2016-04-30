@@ -10,7 +10,7 @@ var senpaiStatus = "STRANGER";
 var seconds = 0;
 var ascensions = 0;
 var autoNoticer = 0;
-var noticerPrice = 10;
+var noticerPrice = 100;
 //When notice clicked
 function notice(){
 	notices++;
@@ -196,10 +196,10 @@ function upgrade(){
 }
 //autoNoticer
 function upgrade2(){
-	if(senpaiPoints - noticerPrice){
+	if(senpaiPoints - noticerPrice > 0){
 		autoNoticer++;
 		if (autoNoticer == 1){
-			
+			setInterval(noticeTimer,5000)
 		}
 	}
 	else{
@@ -213,8 +213,8 @@ function upgrade2(){
 	}
 }
 
-function noticeTimer{
-	
+function noticeTimer(){
+	senpaiPoints = senpaiPoints + autoNoticer;
 }
 //clock
 setInterval(tickTock,1500);
