@@ -7,7 +7,10 @@ var senpaiPrice = 10;
 var pointCounter = 0;
 var SPcounter = 1;
 var senpaiStatus = "STRANGER";
-var cat = true;
+var seconds = 0;
+var ascensions = 0;
+var autoNoticer = 0;
+var noticerPrice = 10;
 //When notice clicked
 function notice(){
 	notices++;
@@ -33,15 +36,35 @@ function notice(){
 	}
 	if (senpaiShip == 7){
 		document.getElementById("mainText").innerHTML = "Kohai awaits ASCENSION.";
+		if(pics.src.match("ASCEND.gif")){
+		}
+		else{
+			pics.src = "ASCEND.gif";
+		}
 	}
 	else if (senpaiShip >= 6){
 		document.getElementById("mainText").innerHTML = "You must really like Kohai.";
+		if(pics.src.match("youust.gif")){
+		}
+		else{
+			pics.src = "youust.gif";
+		}
 	}
 	else if (senpaiShip >= 5){
 		document.getElementById("mainText").innerHTML = "Kohai made you a clicker.";
+		if(pics.src.match("itwasaclick.gif")){
+		}
+		else{
+			pics.src = "itwasaclick.gif";
+		}
 	}
 	else if (senpaiShip >= 4){
 		document.getElementById("mainText").innerHTML = "Kohai has made you something.";
+		if(pics.src.match("forsenpai.jpg")){
+		}
+		else{
+			pics.src = "forsenpai.jpg";
+		}
 	}
 	else if (senpaiShip >= 3){
 		document.getElementById("mainText").innerHTML = "Kohai is simply happy.";
@@ -82,6 +105,19 @@ function notice(){
 	}
 	else{
 		document.getElementById("mainText").innerHTML = "Kohai awaits your attention..."
+	}
+	
+	if(senpaiPoints - senpaiPrice < 0){
+		document.getElementById("upSenpaiButton").className = "clicky disabled";
+	}
+	else{
+		document.getElementById("upSenpaiButton").className = "clicky";
+	}
+		if(senpaiPoints - noticerPrice < 0){
+		document.getElementById("autoNoticeButton").className = "clicky disabled";
+	}
+	else{
+		document.getElementById("autoNoticeButton").className = "clicky";
 	}
 }
 //When upgrade clicked
@@ -126,28 +162,63 @@ function upgrade(){
 			document.getElementById("upSenpaiButton").innerHTML = "ASCEND " + senpaiPrice + " SP"
 		}
 		else if(senpaiShip == 8){
-			cont = false;
-			document.getElementById("upSenpaiButton").innerHTML = "THANK YOU FOR PLAYING";
-			document.getElementById("mainText").innerHTML = "THANK YOU FOR PLAYING";
-			document.getElementById("text1").innerHTML = "THANK YOU FOR PLAYING";
-			document.getElementById("text2").innerHTML = "THANK YOU FOR PLAYING";
-			document.getElementById("text3").innerHTML = "THANK YOU FOR PLAYING";
-			alert("THANK YOU SENPAI FOR PLAYING! You're the best.");
+			ascensions++;
+			notices = 0;
+			senpaiShip = 0;
+			senpaiPoints = 0;
+			senpaiPrice = 10;
+			pointCounter = 0;
+			SPcounter = 1;
+			senpaiStatus = "STRANGER";
+			
+			if (ascensions == 1){
+				document.getElementById("ascensionText").innerHTML = "You have ASCENDED " + ascensions + " time in " + seconds + "seconds.";
+			}
+			else{
+				document.getElementById("ascensionText").innerHTML = "You have ASCENDED " + ascensions + " times in " + seconds + "seconds.";
+			}
 		}
 		if (senpaiShip != 7){
 		document.getElementById("upSenpaiButton").innerHTML = "Upgrade Senpaiship " + senpaiPrice + " SP";
 		
 		document.getElementById("text2").innerHTML = "Upgraded senpaiship to: " + senpaiStatus + ".";
 		}
+		if(senpaiPoints - senpaiPrice < 0){
+		document.getElementById("upSenpaiButton").className = "clicky disabled";
+		}
+		else{
+			document.getElementById("upSenpaiButton").className = "clicky";
+		}
 	}
 	else{
 	document.getElementById("text3").innerHTML = "You don't have enough Senpai points.";
 	}
 }
+//autoNoticer
+function upgrade2(){
+	if(senpaiPoints - noticerPrice){
+		autoNoticer++;
+		if (autoNoticer == 1){
+			
+		}
+	}
+	else{
+		document.getElementById("text3").innerHTML = "You don't have enough Senpai points.";
+	}
+		if(senpaiPoints - noticerPrice < 0){
+		document.getElementById("autoNoticeButton").className = "clicky disabled";
+	}
+	else{
+		document.getElementById("autoNoticeButton").className = "clicky";
+	}
+}
+
+function noticeTimer{
+	
+}
 //clock
 setInterval(tickTock,1500);
 function tickTock(){
-	if(cat == true){
 		if (notices == 1){
 		document.getElementById("text").innerHTML = "You have noticed Kohai " + notices + " time.";
 		}
@@ -172,5 +243,9 @@ function tickTock(){
 		else{
 		document.getElementById("text2").innerHTML = "ASCEND ASCEND ASCEND";
 		}
-	}
+}
+//timer
+setInterval(timer,1000);
+function timer(){
+	seconds++;
 }

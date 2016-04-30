@@ -9,6 +9,14 @@
     padding-right: 10px;
     padding-bottom: 50px;
     padding-left: 10px;
+	color: #000000;
+	border: 2px solid #000000;
+	background-color: #c0c0c0;
+}
+
+.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
 .senpai{
